@@ -1,0 +1,18 @@
+<div class="home_wrapper">
+
+    <div class="home_header_wrapper text-center">
+        <h2 class="text-center">Welcome to <span class="header1">{{brandName}}</span></h2>
+
+        <img src="../../assets/images/banners/home-banner.png">
+    </div>
+    
+    <div class="my-4 text-center">
+        <div class="showBookCount" [hidden]="toggleCount">
+            <p id="booksCountTit">We are providing e-Book Services, with books available <span id="booksCount" class="fw-bold" [innerText]="totalBookCount"></span></p>
+            
+        </div>
+        
+
+        <!-- <button class="btn btn-default" (click)="toggle()">Click Me!</button> -->
+    </div>
+</div>

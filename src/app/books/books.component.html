@@ -1,0 +1,22 @@
+<div class="books_wrapper">
+    <div class="welcome_wrapper" [ngSwitch]="role">
+        <div *ngSwitchCase="'Admin'">
+            <p>Welcome Admin, here are List of Books</p>
+        </div>
+        <div *ngSwitchCase="'Employee'">
+            <p>Welcome, here are List of Books</p>
+        </div>
+        <div *ngSwitchCase="'User'">
+            <p>Welcome User, here are List of Books</p>
+        </div>
+    </div>
+
+    <div class="add_new_wrapper">
+        <!-- <button class="btn btn-secondary" (click)="addBook()">Add New</button> -->
+        <button class="btn btn-secondary" [routerLink]="'/book/add'">Add New</button>
+    </div>
+    <div class="table_books_listing m-3" *ngIf="getAllBooks$ | async as bookList">
+        <bms-book-list [books]="bookList" (deletedBook)="deleteBook($event)" ></bms-book-list>
+    </div>
+</div>
+

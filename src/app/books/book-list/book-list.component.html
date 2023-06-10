@@ -1,0 +1,57 @@
+<div class="table_heading_Wrapper">
+    <h3 class="header3">List of Books</h3>
+</div>
+
+<table mat-table class="table table-responsive" >
+    <thead>
+        <th>S No</th>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Category</th>
+        <th>ISBN number </th>
+        <th>Book Rating </th>
+        <th>Copies Available</th>
+        <th>Rented Copies</th>
+        <th>Cover Image</th>
+        <th>
+            Action
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.authorname}}</td>
+            <td>{{book.bookcategory}}</td>
+            <td>{{book.isbn}}</td>
+            <td>{{book.rating | number : '1.1-1'}}</td>
+            <td>{{book.copiesavailable}}</td>
+            <td>{{book.rentedcopies}}</td>
+            <td>{{book.coverimage}}</td>
+            <td>
+                <img [routerLink]="['/book', book._id]" class="select_btn-icon" src="../../../assets/images/icons/edit.svg" />
+                <img class="delete_btn-icon" (click)="deleteBooks(book)" src="../../../assets/images/icons/delete.svg" />
+            </td>
+        </tr>
+    </tbody>
+    <!-- <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.index + 1}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Book Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="authorname">
+        <th mat-header-cell *matHeaderCellDef> Author Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.authorname}} </td>
+    </ng-container>
+    <ng-container matColumnDef="bookcategory">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.bookcategory}} </td>
+    </ng-container>
+    <ng-container matColumnDef="rating">
+        <th mat-header-cell *matHeaderCellDef> Book Rating </th>
+        <td mat-cell *matCellDef="let element"> {{element.rating | number : '1.1-1'}} </td>
+    </ng-container> -->
+</table>

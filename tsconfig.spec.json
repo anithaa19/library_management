@@ -12,7 +12,7 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.spec.ts",
+    "src/**/*.spec.ts",  //UnitTesting Files
     "src/**/*.d.ts"
   ]
 }

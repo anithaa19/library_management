@@ -1,0 +1,77 @@
+<div class="col-6 m-4">
+    <div class="message_wrapper" *ngIf="successMessage !== ''">
+        <p class="alert alert-success">{{successMessage}}</p>
+        <!-- {{bookForm.pristine | json}}
+        {{bookForm.dirty | json}}
+        {{bookForm.valid | json}}
+        {{bookForm.invalid | json}}
+        {{bookForm.value | json}} -->
+    </div>
+    <div class="form_tit_Wrapper">
+        <h2>{{title}}</h2>
+    </div>
+    <form #bookForm="ngForm" method="post" (ngSubmit)="AddBook(bookForm)">
+        <div class="form-group my-3">
+            <input class="form-control" [(ngModel)]="book.name" type="text" name="name" id="name" placeholder="Book Name" required>
+        </div>
+        <div class="form-group my-3">
+            <input class="form-control" [(ngModel)]="book.authorname" type="text" name="authorname" id="authorname" placeholder="Author Name" required>
+        </div>
+        <div class="form-group my-3">
+            <select class="form-control" name="bookcategory" id="bookcategory" [(ngModel)]="book.bookcategory" required>
+                <option value="IT Software">IT Software</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Kids">Kids</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Education">Education</option>
+                <option value="Personality">Personal Development</option>
+            </select>
+        </div>
+        <div class="form-group my-3">
+            <input class="form-control" #isbnOfBook="ngModel" [(ngModel)]="book.isbn" type="text" minlength="12" maxlength="13" name="isbn"  id="isbn" placeholder="ISBN of Book" required>
+            <div class="alert alert-danger" *ngIf="isbnOfBook.errors?.['minlength']">{{isbnOfBook.errors?.['minlength'] | json}}</div>
+        </div>
+        <div class="form-group my-3">
+            <select class="form-control" name="copiesavailable" id="copiesavailable" [(ngModel)]="book.copiesavailable" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="form-group my-3">
+            <select class="form-control" name="rentedcopies" id="rentedcopies" [(ngModel)]="book.rentedcopies">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="form-group my-3">
+            <select class="form-control" name="coverimage" id="coverimage" [(ngModel)]="book.coverimage">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </div>
+        <div class="form-group my-3">
+            <input class="form-control" [(ngModel)]="book.rating" type="number" name="rating" id="rating" max="5" min="1" maxLength="1" placeholder="Rating for Book" >
+        </div>
+
+        <div class="form_buttons ">
+            <button class="btn btn-secondary col-3 mx-3" [routerLink]="'/books'">Cancel</button>
+            <button class="btn btn-success col-3" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
